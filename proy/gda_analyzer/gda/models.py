@@ -8,4 +8,11 @@ class Producto(models.Model):
     sodio = models.IntegerField()
     energia = models.IntegerField()
 
+    def __str__(self):
+        return str(self.nombre)
+
+class Consumo(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.PROTECT)
+
+
 

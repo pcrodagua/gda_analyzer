@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from gda.models import *
 
 class IGDA:
@@ -75,6 +75,20 @@ gda_ninos_1518 = IGDA(
     140, 55, 18, 24, 2.4, 6
 )
 
+def grafica_datos(request, *args, **kwargs):
+    consumos = Consumo.objects.all()
+    context = {
+        "consumos": consumos,
+        "info_gda": gda_adultos_mujeres,
+    }
+    return render(request, 'gda/charts.html', context)
+
+def agregar_producto(request, id):
+    producto = Producto.objects.get(pk=id)
+    consumo = Consumo()
+    consumo.producto = producto
+    consumo.save()
+    return redirect('/gda/grafica')
 
 def lista_productos(request, *args, **kwargs):
     productos = Producto.objects.all()

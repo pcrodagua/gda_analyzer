@@ -1,3 +1,6 @@
+{% load staticfiles %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>GDA Analyzer - Tables</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -351,6 +354,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th>Imagen</th>
                       <th>Descripci&oacute;n del producto</th>
                       <th>Grasa saturada</th>
                       <th>Otras grasas</th>
@@ -362,6 +366,7 @@
                   </thead>
                   <tfoot>
                     <tr>
+                      <th>Imagen</th>
                       <th>Descripci&oacute;n del producto</th>
                       <th>Grasa saturada</th>
                       <th>Otras grasas</th>
@@ -374,6 +379,7 @@
                   <tbody>
                   {% for producto in productos %}
                     <tr>
+                      <th><img src="{% static 'images/product_image.png' %}" width="160px" height="160px"/></th>
                       <td>{{producto.nombre}}</td>
                       <td>{{producto.grasa_saturada}}</td>
                       <td>{{producto.otras_grasas}}</td>
@@ -388,7 +394,7 @@
                           <span class="text">Informaci&oacute;n</span>
                         </a>
                         <div class="my-2"></div>
-                        <a href="#" class="btn btn-success btn-icon-split">
+                        <a href="{% url 'gda:agregar_producto' producto.id%}" class="btn btn-success btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
                           </span>
