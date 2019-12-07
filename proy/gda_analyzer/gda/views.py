@@ -7,10 +7,11 @@ class IGDA:
                  fibra_nsp, fibra_aoac, sodio, sal):
         self.energia = energia
         self.grasa = grasa
-        self.grasa_sat = grasa_sat
+        self.grasa_saturada = grasa_sat
+        self.otras_grasas = grasa - grasa_sat
         self.hde_carbono = hde_carbono
         self.azucares_adicionados = azucares_adicionados
-        self.azucares_totales = azucares_totales
+        self.azucar_total = azucares_totales
         self.proteina = proteina
         self.fibra_nsp = fibra_nsp
         self.fibra_aoac = fibra_aoac
@@ -96,3 +97,8 @@ def lista_productos(request, *args, **kwargs):
         "productos": productos
     }
     return render(request, 'gda/tables.html', context)
+
+def eliminar_consumo(request, id):
+    consumo = Consumo.objects.get(pk=id)
+    consumo.delete()
+    return redirect('/gda/grafica')

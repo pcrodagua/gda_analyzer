@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load static %}
+{% load filter_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -349,7 +350,7 @@
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Gr&aacute;fica de Consumo</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
@@ -362,8 +363,13 @@
                         data: {
                             labels: ['Grasa saturada', 'Otras grasas', 'Azúcares totales', 'Sodio'],
                             datasets: [{
-                                label: '# of Votes',
-                                data: [12, 19, 3, 5, 2, 3],
+                                label: 'Consumo de Nutrimentos',
+                                data: [
+                                  {{consumos|get_property:'grasa_saturada'}},
+                                  {{consumos|get_property:'otras_grasas'}},
+                                  {{consumos|get_property:'azucar_total'}},
+                                  {{consumos|get_property:'sodio'}}
+                                ],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
@@ -392,8 +398,26 @@
                     });
                     </script>
                   </div>
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Grasa saturada (kcal)</th>
+                        <th>Otras grasas (kcal)</th>
+                        <th>Az&uacute;cares totales (kcal)</th>
+                        <th>Sodio (mg)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{consumos|get_property:'grasa_saturada'}}</td>
+                        <td>{{consumos|get_property:'otras_grasas'}}</td>
+                        <td>{{consumos|get_property:'azucar_total'}}</td>
+                        <td>{{consumos|get_property:'sodio'}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                   <hr>
-                  Styling for the bar chart can be found in the file.
+                  <b>Energ&iacute;a Total: </b>{{consumos|get_property:'energia'}} kcal
                 </div>
               </div>
 
@@ -406,6 +430,80 @@
 
       </div>
       <!-- End of Main Content -->
+
+      <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">
+                Productos A&ntilde;adidos a mi Lista de Consumo
+                <a href="{% url 'gda:lista_productos' %}" class="btn btn-success btn-icon-split" style="float:right">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-check"></i>
+                  </span>
+                  <span class="text">A&ntilde;adir un Nuevo Producto</span>
+                </a>
+              </h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Imagen</th>
+                      <th>Descripci&oacute;n del producto</th>
+                      <th>Grasa saturada</th>
+                      <th>Otras grasas</th>
+                      <th>Az&uacute;cares totales</th>
+                      <th>Sodio</th>
+                      <th>Energ&iacute;a (kcal)</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Imagen</th>
+                      <th>Descripci&oacute;n del producto</th>
+                      <th>Grasa saturada</th>
+                      <th>Otras grasas</th>
+                      <th>Az&uacute;cares totales</th>
+                      <th>Sodio</th>
+                      <th>Energ&iacute;a (kcal)</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                  {% for consumo in consumos %}
+                    <tr>
+                      <th><img src="{% static 'images/product_image.png' %}" width="160px" height="160px"/></th>
+                      <td>{{consumo.producto.nombre}}</td>
+                      <td>{{consumo.producto.grasa_saturada}}</td>
+                      <td>{{consumo.producto.otras_grasas}}</td>
+                      <td>{{consumo.producto.azucar_total}}</td>
+                      <td>{{consumo.producto.sodio}}</td>
+                      <td>{{consumo.producto.energia}}</td>
+                      <td>
+                        <a href="#" class="btn btn-info btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-info-circle"></i>
+                          </span>
+                          <span class="text">Informaci&oacute;n</span>
+                        </a>
+                        <div class="my-2"></div>
+                        <a href="{% url 'gda:eliminar_consumo' consumo.id%}" class="btn btn-danger btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                          </span>
+                          <span class="text">Eliminar de Consumo</span>
+                        </a>
+                        <div class="my-2"></div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
