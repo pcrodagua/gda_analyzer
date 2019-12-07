@@ -4,6 +4,7 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter(name='get_property')
 def get_property(consumos, propiedad):
     valor = 0

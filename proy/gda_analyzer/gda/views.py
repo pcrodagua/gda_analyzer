@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+
 from gda.models import *
+
 
 class IGDA:
 
@@ -76,6 +78,7 @@ gda_ninos_1518 = IGDA(
     140, 55, 18, 24, 2.4, 6
 )
 
+
 def grafica_datos(request, *args, **kwargs):
     consumos = Consumo.objects.all()
     context = {
@@ -84,6 +87,7 @@ def grafica_datos(request, *args, **kwargs):
     }
     return render(request, 'gda/charts.html', context)
 
+
 def agregar_producto(request, id):
     producto = Producto.objects.get(pk=id)
     consumo = Consumo()
@@ -91,12 +95,14 @@ def agregar_producto(request, id):
     consumo.save()
     return redirect('/gda/grafica')
 
+
 def lista_productos(request, *args, **kwargs):
     productos = Producto.objects.all()
     context = {
         "productos": productos
     }
     return render(request, 'gda/tables.html', context)
+
 
 def eliminar_consumo(request, id):
     consumo = Consumo.objects.get(pk=id)
