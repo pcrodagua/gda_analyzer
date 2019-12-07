@@ -7,4 +7,5 @@ urlpatterns = [
     path('grafica', views.grafica_datos, name='grafica_datos'),
     path('agregar/<int:id>', views.agregar_producto, name='agregar_producto'),
     path('eliminar/<int:id>', views.eliminar_consumo, name='eliminar_consumo'),
+    path('infogda', views.info_gda, name='info_gda'),
 ]

@@ -12,20 +12,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>GDA Analyzer - Tables</title>
+  <title>GDA Analyzer - GDA Info</title>
 
-  <!-- Custom fonts for this template -->
+  <!-- Custom fonts for this template-->
   <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-
-  <!-- Custom styles for this page -->
-  <link href="{% static 'dataTables.bootstrap4.min.css' %}" rel="stylesheet">
-
-  {% load bootstrap4 %}
-  {% bootstrap_css %}
 
 </head>
 
@@ -245,73 +239,43 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Productos</h1>
-          <p class="mb-4">Puedes agregar un producto, presionando el bot&oacute;n que indica <b>A&ntilde;adir a Lista</b> o &uacute;nicamente visualizar la <b>informaci&oacute;n</b> del mismo.</p>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Etiquetado Nutrimental Frontal</h1>
+          </div>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Lista de Productos</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Imagen</th>
-                      <th>Descripci&oacute;n del producto</th>
-                      <th>Grasa saturada</th>
-                      <th>Otras grasas</th>
-                      <th>Az&uacute;cares totales</th>
-                      <th>Sodio</th>
-                      <th>Energ&iacute;a (kcal)</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Imagen</th>
-                      <th>Descripci&oacute;n del producto</th>
-                      <th>Grasa saturada</th>
-                      <th>Otras grasas</th>
-                      <th>Az&uacute;cares totales</th>
-                      <th>Sodio</th>
-                      <th>Energ&iacute;a (kcal)</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                  {% for producto in productos %}
-                    <tr>
-                      <th><img src="{% static 'images/product_image.png' %}" width="160px" height="160px"/></th>
-                      <td>{{producto.nombre}}</td>
-                      <td>{{producto.grasa_saturada}}</td>
-                      <td>{{producto.otras_grasas}}</td>
-                      <td>{{producto.azucar_total}}</td>
-                      <td>{{producto.sodio}}</td>
-                      <td>{{producto.energia}}</td>
-                      <td>
-                        <a href="#" class="btn btn-info btn-icon-split">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-info-circle"></i>
-                          </span>
-                          <span class="text">Informaci&oacute;n</span>
-                        </a>
-                        <div class="my-2"></div>
-                        <a href="{% url 'gda:agregar_producto' producto.id%}" class="btn btn-success btn-icon-split">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-check"></i>
-                          </span>
-                          <span class="text">A&ntilde;adir a Lista</span>
-                        </a>
-                        <div class="my-2"></div>
-                      </td>
-                    </tr>
-                  {% endfor %}
-                  </tbody>
-                </table>
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-5 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <img src="{% static 'images/gda-labels.jpg' %}">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-6">
+
+              <!-- Basic Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Etiquetado Nutrimental Frontal</h6>
+                </div>
+                <div class="card-body">
+                  The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
+                </div>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -369,13 +333,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
