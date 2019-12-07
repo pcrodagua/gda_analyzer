@@ -12,7 +12,6 @@
       <change beforePath="$PROJECT_DIR$/gda/templatetags/filter_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/gda/templatetags/filter_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gda/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gda/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/gda/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gda/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gda/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gda/tables.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -108,3 +108,6 @@ def eliminar_consumo(request, id):
     consumo = Consumo.objects.get(pk=id)
     consumo.delete()
     return redirect('/gda/grafica')
+
+def info_gda(request):
+    return render(request, 'gda/infogda.html', {})
