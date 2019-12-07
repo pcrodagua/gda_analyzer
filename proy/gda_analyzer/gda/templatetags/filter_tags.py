@@ -18,7 +18,7 @@ def get_percent(consumos, propiedad):
     info = gda_adultos_mujeres
     maximo = getattr(info, propiedad)
     porcentaje = (100 / maximo) * valor
-    return str(porcentaje)
+    return "{0:.2f} %".format(porcentaje)
 
 @register.filter(name='get_difference')
 def get_difference(consumos, propiedad):
