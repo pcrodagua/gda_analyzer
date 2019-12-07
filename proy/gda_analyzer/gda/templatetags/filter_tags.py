@@ -1,4 +1,5 @@
 from gda.models import *
+from gda.views import gda_adultos_mujeres
 from django import template
 
 register = template.Library()
@@ -12,8 +13,17 @@ def get_property(consumos, propiedad):
     return str(valor)
 
 @register.filter(name='get_percent')
-def get_percent(consumos, infoGda, propiedad):
-    valor = get_property(consumos, propiedad)
-    maximo = gettatr(infoGda, propiedad)
+def get_percent(consumos, propiedad):
+    valor = float(get_property(consumos, propiedad))
+    info = gda_adultos_mujeres
+    maximo = getattr(info, propiedad)
     porcentaje = (100 / maximo) * valor
-    return porcentaje
+    return str(porcentaje)
+
+@register.filter(name='get_difference')
+def get_difference(consumos, propiedad):
+    # {{consumos|get_difference:'grasas_totales'}}
+    valor = float(get_property(consumos, propiedad))
+    info = gda_adultos_mujeres
+    maximo = getattr(info, propiedad)
+    return str(maximo - valor)
