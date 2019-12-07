@@ -66,7 +66,7 @@
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
+                  <img src="{% static 'images/icons/icon_search.png' %}" width="15px"/>
                 </button>
               </div>
             </div>
@@ -98,7 +98,7 @@
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
+                <img src="{% static 'images/icons/icon_bell.png' %}" width="20px"/>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
@@ -147,7 +147,7 @@
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
+                <img src="{% static 'images/icons/icon_envelope.png' %}" width="20px"/>
                 <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
               </a>
@@ -205,8 +205,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mario Oliva</span>
+                <img class="img-profile rounded-circle" src="{% static 'images/profile_photo.png' %}"">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -267,10 +267,22 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Gu&iacute;a Diaria de Alimentaci&oacute;n (GDA)</h6>
+                </div>
+                <div class="card-body">
+                  La GDA (Guía Diaria de Alimentación), es una guía que indica la cantidad de energía (en kcal) y el máximo de grasas, grasas saturadas, sodio y azúcares referenciadas al porcentaje que estos nutrimentos representan en las necesidades diarias, de una dieta promedio de 2000 kcal.
+                  <br/><br/>
+                  En pocas palabras, es la cantidad de nutrimentos necesarios diarios.
+                </div>
+              </div>
+
+              <!-- Basic Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Etiquetado Nutrimental Frontal</h6>
                 </div>
                 <div class="card-body">
-                  The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
+                  Todos los alimentos, bebidas y productos comestibles preenvasados son marcados con un etiquetado que indica el porcentaje de nutrimentos que dicho producto aporta con respecto a la GDA.
                 </div>
               </div>
 
