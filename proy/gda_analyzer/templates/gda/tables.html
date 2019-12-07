@@ -15,14 +15,14 @@
   <title>GDA Analyzer - Tables</title>
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="{% static 'dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
   {% load bootstrap4 %}
   {% bootstrap_css %}
@@ -341,13 +341,13 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Productos</h1>
+          <p class="mb-4">Puedes agregar un producto, presionando el bot&oacute;n que indica <b>A&ntilde;adir a Lista</b> o &uacute;nicamente visualizar la <b>informaci&oacute;n</b> del mismo.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Lista de Productos</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
