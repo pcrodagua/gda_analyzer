@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Producto(models.Model):
     nombre = models.CharField(unique=False, max_length=200)
     grasa_saturada = models.IntegerField()
@@ -10,6 +11,7 @@ class Producto(models.Model):
 
     def __str__(self):
         return str(self.nombre)
+
 
 class Consumo(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.PROTECT)

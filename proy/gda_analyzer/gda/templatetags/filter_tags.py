@@ -3,6 +3,7 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter(name='get_property')
 def get_property(consumos, propiedad):
     valor = 0
@@ -11,9 +12,7 @@ def get_property(consumos, propiedad):
         valor = valor + getattr(producto, propiedad)
     return str(valor)
 
-@register.filter(name='get_percent')
-def get_percent(consumos, infoGda, propiedad):
-    valor = get_property(consumos, propiedad)
-    maximo = gettatr(infoGda, propiedad)
-    porcentaje = (100 / maximo) * valor
-    return porcentaje
+
+@register.filter(name='sub')
+def sub(consumos, info_gda):
+    return int(consumos) - int(info_gda)
